@@ -1,5 +1,22 @@
-import { Link } from "react-router";
+import { NavLink } from "react-router";
+import Logo from "../common/Logo";
 
+const navLink = [
+    {
+        label: 'Home',
+        path: '/',
+    },
+
+    {
+        label: 'Products',
+        path: '/products',
+    },
+
+    {
+        label: 'About Us',
+        path: '/about_us',
+    },
+];
 
 export default function Header() {
     return (
@@ -7,14 +24,13 @@ export default function Header() {
             <nav className="navbar">
                 <div className="container-fluid">
                     <div className="navbar-nav d-flex flex-row gap-2">
-                        <Link className="nav-link" to='/'>Home</Link>
-                        <Link className="nav-link" to='/products'>Products</Link>
-                        <Link className="nav-link" to='/about_us'>About Us</Link>
+                        {navLink.map(el => (
+                            <NavLink key={el.path} className={({ isActive }) => `nav-link ${isActive ? 'fw-bold' : ''}`} to={el.path}>{el.label}</NavLink>
+                        ))}
+
                     </div>
-                    <Link to="/" className="navbar-brand">
-                        <img src="#" alt="Logo" className="d-inline-block align-text-top" />
-                        website name here
-                    </Link>
+                    <Logo />
+
                     <button className="btn border text-white">button set theme here</button>
                 </div>
             </nav>
