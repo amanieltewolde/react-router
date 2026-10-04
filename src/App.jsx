@@ -5,6 +5,7 @@ import AboutUs from "./components/pages/AboutUs";
 import Products from "./components/pages/Products";
 import DefaultLayout from "./components/Default-Layout/DefaultLayout";
 import NotFoundPage404 from "./components/pages/NotFoundPage404";
+import InfoProduct from "./components/pages/InfoProduct";
 export default function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ export default function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/about_us" element={<AboutUs />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<InfoProduct />} />
           <Route path="*" element={<NotFoundPage404 />} />
         </Route>
       </Routes>
