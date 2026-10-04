@@ -9,7 +9,7 @@ export default function Products() {
 
     useEffect(() => {
         async function getProducts() {
-            const response = await fetch(endpoint)
+            const response = await fetch(`${endpoint}?limit=12`)
 
             const data = await response.json();
 
@@ -31,6 +31,7 @@ export default function Products() {
                                 image={product.thumbnail}
                                 price={product.price}
                                 title={product.title}
+                                id={product.id}
                             />
                         </div>
                     ))}

@@ -1,1 +1,1 @@
-export const endpoint = 'https://dummyjson.com/products?limit=12'
+export const endpoint = 'https://dummyjson.com/products'
