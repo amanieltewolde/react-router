@@ -1,23 +1,40 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router"
+import { useNavigate, useParams } from "react-router"
 import { endpoint } from "../../utilities/services/Api-endpoint";
 
 export default function InfoProduct() {
     const { id } = useParams();
+    const navigate = useNavigate()
     const [product, setProduct] = useState({})
 
 
     useEffect(() => {
         async function getProduct() {
-            const response = await fetch(`${endpoint}/${id}`)
 
-            const data = await response.json();
-            console.log(data);
-            setProduct(data)
+            try {
+                const response = await fetch(`${endpoint}/${id}`)
+
+                if (!response.ok) {
+                    if (response.status === 404 || response.status === 400) {
+                        navigate('/products');
+                    } else {
+                        throw new Error('Something  went wrong with your request, please try later')
+                    }
+                }
+
+                const data = await response.json();
+
+                setProduct(data)
+
+            } catch (error) {
+                console.log(error.message);
+
+            }
         }
         getProduct()
-    }, [id])
+    }, [id, navigate])
+
     return (
         <>
             {!!product &&

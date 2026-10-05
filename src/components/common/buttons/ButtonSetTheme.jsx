@@ -24,9 +24,6 @@ export default function ButtonSetTheme() {
             document.documentElement.setAttribute('data-bs-theme', 'light');
 
             localStorage.removeItem('dark-mode');
-
-            // Log di test (OK)
-            console.log('componente rimosso');
         }
     }, [])
 
