@@ -1,12 +1,16 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router"
+import { Link, useNavigate, useParams } from "react-router"
 import { endpoint } from "../../utilities/services/Api-endpoint";
+import { ArrowRight } from "lucide-react";
+import { OctagonX } from "lucide-react";
 
 export default function InfoProduct() {
     const { id } = useParams();
     const navigate = useNavigate()
     const [product, setProduct] = useState({})
+
+    const [error, setError] = useState(false)
 
 
     useEffect(() => {
@@ -16,19 +20,20 @@ export default function InfoProduct() {
                 const response = await fetch(`${endpoint}/${id}`)
 
                 if (!response.ok) {
-                    if (response.status === 404 || response.status === 400) {
-                        navigate('/products');
-                    } else {
-                        throw new Error('Something  went wrong with your request, please try later')
-                    }
+                    // if (response.status === 404 || response.status === 400) {
+                    // navigate('/products');
+                    // } else {
+                    throw new Error('Something  went wrong with your request, please try later')
+                    // }
                 }
 
                 const data = await response.json();
 
                 setProduct(data)
 
-            } catch (error) {
-                console.log(error.message);
+            } catch (e) {
+                console.log(e.message);
+                setError(e.message)
 
             }
         }
@@ -37,6 +42,11 @@ export default function InfoProduct() {
 
     return (
         <>
+            {error && <div className=" container alert alert-danger mt-5 fs-3" role="alert"><OctagonX /> {error}
+                <div><ArrowRight /> <Link className="btn btn-dark" to={'/'}>Home</Link> </div>
+            </div>}
+
+
             {!!product &&
                 <>
                     <h1>{product.title}</h1>
