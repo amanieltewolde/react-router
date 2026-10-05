@@ -1,5 +1,6 @@
 import { NavLink } from "react-router";
 import Logo from "../common/Logo";
+import ButtonSetTheme from "../common/buttons/ButtonSetTheme";
 
 const navLink = [
     {
@@ -30,8 +31,7 @@ export default function Header() {
 
                     </div>
                     <Logo />
-
-                    <button className="btn border text-white">button set theme here</button>
+                    <ButtonSetTheme />
                 </div>
             </nav>
 
