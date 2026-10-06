@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router"
 import { endpoint } from "../../utilities/services/Api-endpoint";
 import { ArrowRight } from "lucide-react";
-import { OctagonX } from "lucide-react";
 import Loader from "../common/Loader";
+import ErrorAlert from "../common/alert/ErrorAlert";
 
 export default function InfoProduct() {
     const { id } = useParams();
@@ -47,9 +47,12 @@ export default function InfoProduct() {
 
     return (
         <>
-            {error && <div className=" container alert alert-danger mt-5 fs-3" role="alert"><OctagonX /> {error}
-                <div><ArrowRight /> <Link className="btn btn-dark" to={'/'}>Home</Link> </div>
-            </div>}
+            {error &&
+                <ErrorAlert
+                    message={error}>
+
+                    <div><ArrowRight /> <Link className="btn btn-dark" to={'/'}>Home</Link> </div>
+                </ErrorAlert>}
 
             {loading && <Loader />}
 
