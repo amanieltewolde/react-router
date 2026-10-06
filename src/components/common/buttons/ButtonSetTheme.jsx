@@ -1,4 +1,4 @@
-import { Sun, Moon } from "lucide-react";
+import { Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function ButtonSetTheme() {
@@ -30,7 +30,7 @@ export default function ButtonSetTheme() {
     return (
         <>
             <button value={toggle} onClick={() => setToggle(!toggle)} className="btn">
-                {toggle ? <Sun /> : <Moon />}
+                {toggle ? <Moon fill="yellow" /> : <Moon />}
             </button>
         </>
     )
