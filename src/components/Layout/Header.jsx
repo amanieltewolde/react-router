@@ -21,16 +21,17 @@ const navLink = [
 
 export default function Header() {
     return (
-        <header className="bg-primary text-white">
+        <header className="bg-primary">
             <nav className="navbar">
                 <div className="container-fluid">
                     <div className="navbar-nav d-flex flex-row gap-2">
                         {navLink.map(el => (
-                            <NavLink key={el.path} className={({ isActive }) => `nav-link ${isActive ? 'fw-bold' : ''}`} to={el.path}>{el.label}</NavLink>
+                            <NavLink key={el.path} className={({ isActive }) => `nav-link fs-6 ${isActive ? 'fw-bold' : ''}`} to={el.path}>{el.label}</NavLink>
                         ))}
 
                     </div>
-                    <Logo />
+                    <Logo
+                        width="75" />
                     <ButtonSetTheme />
                 </div>
             </nav>

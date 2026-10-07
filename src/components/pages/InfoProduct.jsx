@@ -22,6 +22,9 @@ export default function InfoProduct() {
             try {
                 const response = await fetch(`${endpoint}/${id}`)
 
+                // Fake call to get a 500 error
+                // const response = await fetch('https://dummyjson.com/http/500');
+
                 if (!response.ok) {
                     if (response.status === 404 || response.status === 400) {
                         navigate('/products');
