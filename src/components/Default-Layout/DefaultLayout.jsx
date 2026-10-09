@@ -4,7 +4,7 @@ import MainContent from "../Layout/MainContent";
 
 export default function DefaultLayout() {
     return (
-        <div className="d-flex flex-column min-vh-100">
+        <div className="d-flex flex-column min-vh-100 text-gold">
             <Header />
             <MainContent />
             <Footer />

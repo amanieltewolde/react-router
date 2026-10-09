@@ -1,3 +1,31 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+
+.bg-black {
+    background-color: #212121;
+}
+
+.text-gold {
+    color: #ffd700;
+}
+
+.bg-gold {
+    background-color: #ffd700;
+}
+
+.bg-gray {
+    background-color: #424242;
+}
+
+.bg-foresta {
+    background-image: url('./assets/images/foresta.jpg');
+    background-size: cover;
+    /* background-position:center; */
+    background-repeat: repeat-y;
+}
+
+.nav-link:hover,
+.nav-link:visited {
+    color: #ffd700;
+}

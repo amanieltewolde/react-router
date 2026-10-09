@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import logo from '../../assets/images/Logotest2.png'
+import logo from '../../assets/images/Logo2.png'
 
 export default function Logo({ width }) {
     return (
