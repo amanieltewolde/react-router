@@ -5,6 +5,7 @@ import CardProduct from "../common/CardProduct";
 import Loader from "../common/Loader";
 import { useNavigate } from "react-router";
 import ErrorAlert from "../common/alert/ErrorAlert";
+import TextContainer from "../common/TextContainer";
 
 export default function Products() {
 
@@ -52,7 +53,9 @@ export default function Products() {
 
     return (
         <>
-            <h2 className="mb-5">Products</h2>
+            <TextContainer>
+                <h2>Products</h2>
+            </TextContainer>
 
             {loading && <Loader />}
 
