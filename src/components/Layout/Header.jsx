@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import Logo from "../common/Logo";
 import { ShoppingCart } from "lucide-react";
+import { useState } from "react";
 // import ButtonSetTheme from "../common/buttons/ButtonSetTheme";
 
 const navLink = [
@@ -21,6 +22,10 @@ const navLink = [
 ];
 
 export default function Header() {
+
+    const [cartProducts, setCartProducts] = useState([]);
+
+    const totCartProducts = cartProducts.length
     return (
         <header className="bg-black border-bottom border-4" >
             <nav className="navbar">
@@ -36,7 +41,7 @@ export default function Header() {
                     {/* <ButtonSetTheme /> */}
                     <div>
                         <ShoppingCart />
-                        <div className="badge bg-danger">x</div>
+                        <div className="badge bg-danger">{totCartProducts}</div>
                     </div>
                 </div>
             </nav>
