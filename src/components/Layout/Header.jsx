@@ -1,6 +1,7 @@
 import { NavLink } from "react-router";
 import Logo from "../common/Logo";
-import ButtonSetTheme from "../common/buttons/ButtonSetTheme";
+import { ShoppingCart } from "lucide-react";
+// import ButtonSetTheme from "../common/buttons/ButtonSetTheme";
 
 const navLink = [
     {
@@ -21,18 +22,22 @@ const navLink = [
 
 export default function Header() {
     return (
-        <header className="bg-primary">
+        <header className="bg-black border-bottom border-4" >
             <nav className="navbar">
                 <div className="container-fluid">
                     <div className="navbar-nav d-flex flex-row gap-2">
                         {navLink.map(el => (
-                            <NavLink key={el.path} className={({ isActive }) => `nav-link fs-6 ${isActive ? 'fw-bold' : ''}`} to={el.path}>{el.label}</NavLink>
+                            <NavLink key={el.path} className={({ isActive }) => `nav-link fs-6 text-gold ${isActive ? 'fw-bold' : ''}`} to={el.path}>{el.label}</NavLink>
                         ))}
 
                     </div>
                     <Logo
                         width="75" />
-                    <ButtonSetTheme />
+                    {/* <ButtonSetTheme /> */}
+                    <div>
+                        <ShoppingCart />
+                        <div className="badge bg-danger">x</div>
+                    </div>
                 </div>
             </nav>
 
