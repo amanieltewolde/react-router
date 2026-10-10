@@ -5,6 +5,8 @@ import { endpoint } from "../../utilities/services/Api-endpoint";
 import { ArrowRight } from "lucide-react";
 import Loader from "../common/Loader";
 import ErrorAlert from "../common/alert/ErrorAlert";
+import TextContainer from "../common/TextContainer";
+import ButtonAddProduct from "../common/buttons/ButtonAddProduct";
 
 export default function InfoProduct() {
     const { id } = useParams();
@@ -61,12 +63,25 @@ export default function InfoProduct() {
 
             {!!product &&
                 <>
-                    <h1>{product.title}</h1>
-                    <img src={product.thumbnail} alt={product.title} />
-                    <p>{product.price}</p>
-                    <p>{product.description}</p>
-                    <span className="badge bg-success">{product.availabilityStatus
-                    }</span>
+                    <TextContainer>
+                        <h1>{product.title}</h1>
+                        <div className="d-flex">
+
+                            <img src={product.thumbnail} alt={product.title} />
+                            <div className="d-flex flex-column justify-content-center align-items-end gap-2">
+                                <p className="fw-lighter text-end">{product.description}</p>
+                                <span className="badge bg-success">{product.availabilityStatus}</span>
+                                <p className="fw-bold"> {
+                                    new Intl.NumberFormat('it-IT', ({
+                                        style: 'currency',
+                                        currency: 'EUR'
+                                    })).format(product.price)
+                                }</p>
+
+                                <ButtonAddProduct product={product} />
+                            </div>
+                        </div>
+                    </TextContainer>
                 </>
             }
         </>
