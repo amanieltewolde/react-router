@@ -1,6 +1,5 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { endpoint } from "../../utilities/services/Api-endpoint";
-import { useState } from "react";
 import CardProduct from "../common/CardProduct";
 import Loader from "../common/Loader";
 import { useNavigate } from "react-router";
@@ -12,7 +11,6 @@ export default function Products() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
-
 
     const navigate = useNavigate()
 
@@ -64,7 +62,6 @@ export default function Products() {
                     message={error}
                 />}
 
-
             <div className="container-fluid d-flex justify-content-center">
                 <div className="w-75 row row-cols-2 row-cols-lg-4 gx-2 gy-5">
                     {products.map(product => (
@@ -74,6 +71,7 @@ export default function Products() {
                                 price={product.price}
                                 title={product.title}
                                 id={product.id}
+                                product={product}
                             />
                         </div>
                     ))}

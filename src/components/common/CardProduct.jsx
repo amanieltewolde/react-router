@@ -1,9 +1,9 @@
-// import { useParams } from "react-router";
 import { Link } from "react-router";
+import { useCartContext } from "../../context/CartContext";
 
-export default function CardProduct({ title, image, price, id }) {
+export default function CardProduct({ title, image, price, id, product, }) {
+    const { handleAddCardProducts } = useCartContext()
 
-    // const { id } = useParams()
     return (
         <>
             <div className="card h-100">
@@ -16,7 +16,7 @@ export default function CardProduct({ title, image, price, id }) {
                     })).format(price)}</p>
                     <div className=" d-flex align-items-center gap-1">
                         <Link to={`/products/${id}`} className="btn btn-sm btn-primary" role="button">Info</Link>
-                        <Link to={{}} className="btn btn-sm bg-gold" role="button">Add to cart</Link>
+                        <button onClick={() => handleAddCardProducts(product)} className="btn btn-sm bg-gold border border-3">Add to cart</button>
                     </div>
                 </div>
             </div>

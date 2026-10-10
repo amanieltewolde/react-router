@@ -1,7 +1,7 @@
 import { NavLink } from "react-router";
 import Logo from "../common/Logo";
 import { ShoppingCart } from "lucide-react";
-import { useState } from "react";
+import { useCartContext } from "../../context/CartContext";
 // import ButtonSetTheme from "../common/buttons/ButtonSetTheme";
 
 const navLink = [
@@ -22,10 +22,7 @@ const navLink = [
 ];
 
 export default function Header() {
-
-    const [cartProducts, setCartProducts] = useState([]);
-
-    const totCartProducts = cartProducts.length
+    const { totCartProducts } = useCartContext()
     return (
         <header className="bg-black border-bottom border-4" >
             <nav className="navbar">
